@@ -1,0 +1,60 @@
+---
+title: "Homework 2"
+name: Ann Gould
+output:
+  html_document:
+    df_print: paged
+github: gould-ann
+---
+
+## R Commands
+
+1. 
+```{r}
+far <- c(24,15)
+cel <- c()
+for (i in far){
+  val = ((i - 32) * 5)/9
+  cel <- append(cel,val)
+}
+print(cel)
+```
+
+2. 
+
+```{r}
+vec200 <- integer(200)
+
+for (i in 0:length(vec200)){
+  if (i %% 2 == 1){
+    vec200[i] = 3
+  } else{
+    vec200[i] = 1
+  }
+}
+  
+print(vec200)
+```
+
+3. 
+
+```{r}
+count = 0
+for (i in 1:2001){
+  if (sqrt(i) == floor(sqrt(i))){
+    count <- count + 1
+  }
+}
+  
+print(count)
+```
+
+## Cars and Mileage
+
+```{r}
+# install.packages('ggplot2')
+foo = library(ggplot2)
+print(mpg)
+```
+
+
