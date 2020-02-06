@@ -75,7 +75,26 @@ print(numCompact)
 
 3.
 ```{r}
+plot(mpg$hwy)
+plot(mpg$cty)
+```
 
+# EXPLANATION
+Even though there are over 200 points, they all aren't that visible beacuse some points seemingly overlap with each other/appear like they are overlapping.
+
+The trends between hwy and cty mpg are very similar... Highway mpg has a higher value than city mpg.
+
+4.
+```{r}
+
+library(dplyr)
+
+data <- mpg %>%
+  count(class)
+
+# do the same thing from the lab lol
+plot(mpg$hwy)
+plot(mpg$cty)
 ```
 
 
