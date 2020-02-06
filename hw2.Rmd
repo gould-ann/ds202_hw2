@@ -51,10 +51,31 @@ print(count)
 
 ## Cars and Mileage
 
+
+1. 
 ```{r}
 # install.packages('ggplot2')
-foo = library(ggplot2)
-print(mpg)
+library(ggplot2)
+
+top3 <- mpg[order(-mpg$hwy),][0:3,]
+print(top3)
+
+```
+
+2.
+```{r}
+library(dplyr)
+
+data <- mpg %>%
+  count(class)
+
+numCompact <- data[data$class == "compact", ]
+print(numCompact)
+```
+
+3.
+```{r}
+
 ```
 
 
