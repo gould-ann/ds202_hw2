@@ -12,7 +12,7 @@ github: gould-ann
 1. 
 ```{r}
 far <- c(24,15)
-cel <- c()
+cel <- c() # create empty vector to put translated temperatures in 
 for (i in far){
   val = ((i - 32) * 5)/9
   cel <- append(cel,val)
@@ -41,6 +41,7 @@ print(vec200)
 ```{r}
 count = 0
 for (i in 1:2001){
+  # if the square root of a number has no trailing decimal points, then its a perfect square
   if (sqrt(i) == floor(sqrt(i))){
     count <- count + 1
   }
@@ -65,6 +66,7 @@ print(top3)
 2.
 ```{r}
 library(dplyr)
+library(ggplot2)
 
 data <- mpg %>%
   count(class)
@@ -75,11 +77,15 @@ print(numCompact)
 
 3.
 ```{r}
+# Explanation provided below.
+plot(mpg$cty, mpg$hwy) # is this what you were originally looking for?
+# there are not many data points here as some data points overlap each other
 plot(mpg$hwy)
 plot(mpg$cty)
 ```
 
-# EXPLANATION
+#### Explanation:
+
 Even though there are over 200 points, they all aren't that visible beacuse some points seemingly overlap with each other/appear like they are overlapping.
 
 The trends between hwy and cty mpg are very similar... Highway mpg has a higher value than city mpg.
@@ -87,14 +93,21 @@ The trends between hwy and cty mpg are very similar... Highway mpg has a higher 
 4.
 ```{r}
 
+
+library(ggplot2)
 library(dplyr)
 
+plot(mpg$year, mpg$hwy)
+
 data <- mpg %>%
-  count(class)
+  group_by(year) %>%
+  summarise(averageMPG = mean(hwy))
+print(data)
+# using a graph to analyze
+# plot hwy vs car year 
 
-# do the same thing from the lab lol
-plot(mpg$hwy)
-plot(mpg$cty)
+
 ```
+#### Explanation:
 
-
+From the graph and the average data based on year, the Highway MPG between cars in 2008 and 1999 barely vary. There isn't a strong correlation in the graph provided as well, so the hypothesis suggested is not that significant.
